@@ -2,6 +2,7 @@ package iteration
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -28,4 +29,14 @@ func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Repeat("a", 0)
 	}
+}
+
+func TestStringHasPrefix(t *testing.T) {
+	value := "bar"
+	result := strings.HasPrefix("barter", value)
+
+	if !result {
+		t.Errorf("expected true for value %v in string'barter' but got %v", value, result)
+	}
+
 }
